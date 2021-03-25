@@ -1,0 +1,7 @@
+include emstanzadep/stanza_models
+include emstanzadep/stanza_models/hu
+include emstanzadep/stanza_models/hu/pretrain
+include emstanzadep/stanza_models/hu/pretrain/szeged.pt
+include emstanzadep/stanza_models/hu/depparse
+include emstanzadep/stanza_models/hu/depparse/szeged.pt
+include emstanzadep/stanza_models/resources.json
