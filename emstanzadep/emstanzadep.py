@@ -15,7 +15,7 @@ class EmStanzaDep:
     pass_header = True
     fixed_order_tsv_input = False
 
-    def __init__(self, naming_convention, source_fields=None, target_fields=None):
+    def __init__(self, naming_convention, model_path=os.path.join(os.path.dirname(__file__), 'stanza_models'), source_fields=None, target_fields=None):
         """
         The initialisation of the module. One can extend the list of parameters as needed. The mandatory fields which
          should be set by keywords are the following:
@@ -37,9 +37,15 @@ class EmStanzaDep:
         # This downloads the model, but we are packaging a frozen stanza model.
         # stanza.download(lang='hu', model_dir='./stanza_models', verbose=True, processors='depparse')
 
-        self.stanza_depparse = stanza.Pipeline(lang='hu', dir=os.path.join(os.path.dirname(__file__), 'stanza_models'),
-                                               processors='depparse', depparse_pretagged=True, verbose=False)
+        self.stanza_depparse = stanza.Pipeline(lang='hu', dir=model_path, processors='depparse', depparse_pretagged=True, verbose=False)
         self.naming_convention = naming_convention
+
+        if self.naming_convention == 'stanza':
+            self.convert = self._to_stanza
+        elif self.naming_convention == 'magyarlanc':
+            self.convert = self._to_lanc
+        else:
+            raise NotImplementedError('Naming convention can either be `stanza` or `magyarlanc`.')
 
     def process_sentence(self, sen, field_names):
         """
@@ -49,7 +55,6 @@ class EmStanzaDep:
          to process
         :return: the sen object augmented with the output field values for each token
         """
-        # [tok.append('*') for tok in sen]
         # convert from xtsv to stanza
         stanza_sentence = []
         for i, line in enumerate(sen, start=1):
@@ -60,26 +65,22 @@ class EmStanzaDep:
         # we convert from List[List[Dictionary]] to stanza Document and then back
         depparsed_sentence = self.stanza_depparse(Document([stanza_sentence])).to_dict()
 
-        # 'target_fields': ['id', 'deprel', 'head']
-        # convert back to xtsv
-        # we call if-else once per sentence which is fine
-
-        if self.naming_convention == 'stanza':
-            for parse, line in zip(depparsed_sentence[0], sen):
-                # we are modifying the elements of sen inplace
-                line += [str(parse['id']), parse['deprel'], str(parse['head'])]
-
-        elif self.naming_convention == 'magyarlanc':
-            for parse, line in zip(depparsed_sentence[0], sen):
-                loc = parse['deprel'].find(':') + 1  # -1+1 if no `:`, otherwise the location of `:`
-                line += [str(parse['id']), parse['deprel'][loc:].upper(), str(parse['head'])]
-            # last punctiation mark's head is 0 in magyarlanc
-            sen[-1][-1] = '0'
-
-        else:
-            raise NotImplementedError('Naming convention can either be `stanza` or `magyarlanc`.')
+        # merging depparsed sentence to original sentence inplace
+        self.convert(sen, depparsed_sentence)
 
         return sen
+
+    def _to_stanza(self, sen, depparsed_sentence):
+        for parse, line in zip(depparsed_sentence[0], sen):
+            # we are modifying the elements of sen inplace
+            line += [str(parse['id']), parse['deprel'], str(parse['head'])]
+
+    def _to_lanc(self, sen, depparsed_sentence):
+        for parse, line in zip(depparsed_sentence[0], sen):
+            loc = parse['deprel'].find(':') + 1  # -1+1 if no `:`, otherwise the location of `:`
+            line += [str(parse['id']), parse['deprel'][loc:].upper(), str(parse['head'])]
+        # last punctiation mark's head is 0 in magyarlanc
+        sen[-1][-1] = '0'
 
     def prepare_fields(self, field_names):
         """
