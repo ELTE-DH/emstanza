@@ -55,7 +55,7 @@ class EmStanzaDep:
          to process
         :return: the sen object augmented with the output field values for each token
         """
-        # convert from xtsv to stanza
+        # convert from xtsv to stanza format
         stanza_sentence = []
         for i, line in enumerate(sen, start=1):
             stanza_sentence.append({'id': i, 'text': line[field_names['form']], 'lemma': line[field_names['lemma']],
