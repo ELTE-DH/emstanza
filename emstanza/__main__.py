@@ -6,7 +6,7 @@ from xtsv import build_pipeline, parser_skeleton, jnius_config
 
 def main():
 
-    argparser = parser_skeleton(description="emstanza")
+    argparser = parser_skeleton(description='emstanza')
     opts = argparser.parse_args()
 
     jnius_config.classpath_show_warning = opts.verbose  # Suppress warning.
@@ -19,7 +19,7 @@ def main():
     output_iterator = opts.output_stream
 
     # Set the tagger name as in the tools dictionary
-    used_tools = ["stanza"]
+    used_tools = ['stanza']
     presets = []
 
     # Init and run the module as it were in xtsv
@@ -28,40 +28,48 @@ def main():
     # from emdummy import EmDummy
 
     available_tasks = {
-        "tok": {"task": "tok", "source_fields": set(), "target_fields": ["form", "wsafter"]},
-        "tok-pos": {"task": "tok-pos", "source_fields": set(), "target_fields": ["form", "wsafter", "feats", "upostag", "xpostag"]},
-        "tok-lem": {"task": "tok-lem", "source_fields": set(), "target_fields": ["form", "wsafter", "feats", "upostag", "xpostag", "lemma"]},
-        "tok-parse": {
-            "task": "tok-parse",
-            "source_fields": set(),
-            "target_fields": ["form", "wsafter", "feats", "upostag", "xpostag", "lemma", "id", "deprel", "head"],
+        'tok': {'task': 'tok', 'source_fields': set(), 'target_fields': ['form', 'wsafter']},
+        'tok-pos': {
+            'task': 'tok-pos',
+            'source_fields': set(),
+            'target_fields': ['form', 'wsafter', 'feats', 'upostag', 'xpostag'],
         },
-        "parse": {
-            "task": "parse",
-            "source_fields": {'form', 'lemma', 'upostag', 'feats'},
-            "target_fields": ["id", "deprel", "head"],
+        'tok-lem': {
+            'task': 'tok-lem',
+            'source_fields': set(),
+            'target_fields': ['form', 'wsafter', 'feats', 'upostag', 'xpostag', 'lemma'],
+        },
+        'tok-parse': {
+            'task': 'tok-parse',
+            'source_fields': set(),
+            'target_fields': ['form', 'wsafter', 'feats', 'upostag', 'xpostag', 'lemma', 'id', 'deprel', 'head'],
+        },
+        'parse': {
+            'task': 'parse',
+            'source_fields': {'form', 'lemma', 'upostag', 'feats'},
+            'target_fields': ['id', 'deprel', 'head'],
         },
     }
 
     emstanza = (
-        "emstanza",
-        "EmStanza",
-        "Parsing with Stanza",
+        'emstanza',
+        'EmStanza',
+        'Parsing with Stanza',
         (),
-        available_tasks['tok-parse'],
+        available_tasks['parse'],
     )  # Target field names
-    # tools = [(emstanza, ("emstanza", "stanza", "emStanza"))]
+    tools = [(emstanza, ('emstanza', 'stanza', 'emStanza'))]
 
     # Run the pipeline on input and write result to the output...
-    # output_iterator.writelines(build_pipeline(input_data, used_tools, tools, presets, opts.conllu_comments))
+    output_iterator.writelines(build_pipeline(input_data, used_tools, tools, presets, opts.conllu_comments))
 
     # TODO this method is recommended when debugging the tool
     # Alternative: Run specific tool for input (still in emtsv format):
-    from xtsv import process
-    from emstanza import EmStanza
+    # from xtsv import process
+    # from emstanza import EmStanza
 
-    proc = process(input_data, EmStanza(*emstanza[3], **emstanza[4]))
-    output_iterator.writelines(proc)
+    # proc = process(input_data, EmStanza(*emstanza[3], **emstanza[4]))
+    # output_iterator.writelines(proc)
 
     # For testing all of the tokenizer settings. Supply a text file and it will write to stdout all the tokenizer tasks.
     # from io import StringIO
@@ -81,5 +89,5 @@ def main():
     # app.run()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
