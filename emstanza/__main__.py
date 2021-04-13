@@ -48,11 +48,9 @@ def main():
         "EmStanza",
         "Parsing with Stanza",
         (),
-        available_tasks['parse'],
+        available_tasks['tok-parse'],
     )  # Target field names
     # tools = [(emstanza, ("emstanza", "stanza", "emStanza"))]
-
-
 
     # Run the pipeline on input and write result to the output...
     # output_iterator.writelines(build_pipeline(input_data, used_tools, tools, presets, opts.conllu_comments))

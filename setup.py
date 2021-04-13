@@ -19,14 +19,14 @@ with open('README.md') as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name='emstanzadep',
+    name='emstanza',
     # Get version without actually importing the module (else we need the dependencies installed)
-    version=getattr(import_python_file('version', 'emstanzadep/version.py'), '__version__'),
+    version=getattr(import_python_file('version', 'emstanza/version.py'), '__version__'),
     author='levaid',  # Will warn about missing e-mail
-    description='Stanza dependency parser fitted to xtsv.',
+    description='Stanza fitted to xtsv.',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/ELTE-DH/emstanzadep',
+    url='https://github.com/ELTE-DH/emstanza',
     # license='GNU Lesser General Public License v3 (LGPLv3)',  # Never really used in favour of classifiers
     # platforms='any',  # Never really used in favour of classifiers
     packages=setuptools.find_packages(include=['*', 'stanza_models'], exclude=['tests']),
@@ -41,7 +41,7 @@ setuptools.setup(
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'emstanzadep=emstanzadep.__main__:main',
+            'emstanza=emstanza.__main__:main',
         ]
     },
 )

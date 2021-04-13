@@ -1,0 +1,108 @@
+form	wsafter	feats	upostag	xpostag	lemma	id	deprel	head
+Megszaporodtak	" "	Definite=Ind|Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	VERB	_	meg+szaporodik	1	root	0
+az	" "	Definite=Def|PronType=Art	DET	_	az	2	det	4
+olyan	" "	Case=Nom|Degree=Pos|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	ADJ	_	olyan	3	amod:att	4
+posztok	" "	Case=Nom|Number=Plur|Number[psed]=None|Number[psor]=None|Person[psor]=None	NOUN	_	poszt	4	nsubj	1
+a	" "	Definite=Def|PronType=Art	DET	_	a	5	det	6
+Facebookon	""	Case=Sup|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	PROPN	_	Facebo	6	nmod:obl	1
+,	" "	_	PUNCT	_	,	7	punct	1
+amikben	" "	Case=Ine|Number=Plur|Number[psed]=None|Number[psor]=None|Person=3|Person[psor]=None|PronType=Rel	PRON	_	ami	8	nmod:obl	15
+a	" "	Definite=Def|PronType=Art	DET	_	a	9	det	11
+magyar	" "	Case=Nom|Degree=Pos|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	ADJ	_	magyar	10	amod:att	11
+politikusok	" "	Case=Nom|Number=Plur|Number[psed]=None|Number[psor]=None|Person[psor]=None	NOUN	_	politikus	11	nsubj	15
+a	" "	Definite=Def|PronType=Art	DET	_	a	12	det	14
+saját	" "	Definite=Def|PronType=Prs	DET	_	saját	13	det	14
+gyerekeiket	" "	Case=Acc|Number=Plur|Number[psed]=None|Number[psor]=Plur|Person[psor]=3	NOUN	_	gyerek	14	obj	15
+mutatják	" "	Definite=Def|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	VERB	_	mutat	15	acl	6
+meg	""	_	PART	_	meg	16	compound:preverb	15
+,	" "	_	PUNCT	_	,	17	punct	20
+ezekkel	" "	Case=Ins|Number=Plur|Number[psed]=None|Number[psor]=None|Person=3|Person[psor]=None|PronType=Dem	PRON	_	ez	18	nmod:obl	20
+aztán	" "	_	ADV	_	aztán	19	advmod:tlocy	20
+jön	" "	Definite=Ind|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	VERB	_	jön	20	conj	1
+a	" "	Definite=Def|PronType=Art	DET	_	a	21	det	23
+nagy	" "	Case=Nom|Degree=Pos|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	ADJ	_	nagy	22	amod:att	23
+lájkcunami	" "	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=Sing|Person[psor]=1	NOUN	_	lájkcun	23	nsubj	20
+is	""	_	CCONJ	_	is	24	cc	23
+.	" "	_	PUNCT	_	.	25	punct	1
+
+Megnéztük	" "	Definite=Def|Mood=Ind|Number=Plur|Person=1|Tense=Past|VerbForm=Fin|Voice=Act	VERB	_	megnéz	1	root	0
+a	" "	Definite=Def|PronType=Art	DET	_	a	2	det	4
+legaktívabb	" "	Case=Nom|Degree=Sup|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	ADJ	_	kritív	3	amod:att	4
+politikusok	" "	Case=Nom|Number=Plur|Number[psed]=None|Number[psor]=None|Person[psor]=None	NOUN	_	politikus	4	nmod:att	6
+legnépszerűbb	" "	Case=Nom|Degree=Sup|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	ADJ	_	mélszerű	5	amod:att	6
+posztjait	""	Case=Acc|Number=Plur|Number[psed]=None|Number[psor]=Sing|Person[psor]=3	NOUN	_	poszt	6	obj	1
+:	" "	_	PUNCT	_	:	7	punct	1
+van	""	Definite=Ind|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	VERB	_	van	8	parataxis	1
+,	" "	_	PUNCT	_	,	9	punct	8
+akinél	" "	Case=Ins|Number=Sing|Number[psed]=None|Number[psor]=None|Person=3|Person[psor]=None|PronType=Rel	PRON	_	aki	10	nmod:obl	13
+csak	" "	_	ADV	_	csak	11	advmod:mode	13
+idén	" "	_	ADV	_	idén	12	advmod:tlocy	13
+becsúszott	" "	Definite=Ind|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	VERB	_	be+csúszik	13	acl	6
+már	" "	_	ADV	_	már	14	advmod:tlocy	13
+hat-hét	" "	Case=Nom|NumType=Card|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	NUM	_	hat-hét	15	nummod	16
+gyerekfotó	""	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	NOUN	_	gyerekfotó	16	nsubj	13
+,	" "	_	PUNCT	_	,	17	punct	21
+más	" "	Definite=Ind|PronType=Ind	DET	_	más	18	det	20
+politikai	" "	Case=Nom|Degree=Pos|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	ADJ	_	politikai	19	amod:att	20
+transzparenst	" "	Case=Acc|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	NOUN	_	transzparenst	20	obj	21
+ad	" "	Definite=Ind|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	VERB	_	ad	21	conj	1
+a	" "	Definite=Def|PronType=Art	DET	_	a	22	det	23
+gyereke	" "	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	NOUN	_	gyerek	23	nmod:att	24
+kezébe	""	Case=Ill|Number=Sing|Number[psed]=None|Number[psor]=Sing|Person[psor]=3	NOUN	_	kéz	24	nmod:obl	21
+,	" "	_	PUNCT	_	,	25	punct	27
+de	" "	_	CCONJ	_	de	26	cc	27
+akad	" "	Definite=Ind|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	VERB	_	akad	27	conj	1
+olyan	" "	Case=Nom|Degree=Pos|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	ADJ	_	olyan	28	amod:att	29
+politikus	" "	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	NOUN	_	politikus	29	nsubj	27
+is	""	_	CCONJ	_	is	30	cc	29
+,	" "	_	PUNCT	_	,	31	punct	27
+aki	" "	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=None|Person=3|Person[psor]=None|PronType=Rel	PRON	_	aki	32	nsubj	35
+saját	" "	Definite=Def|PronType=Prs	DET	_	saját	33	det	34
+oldalát	" "	Case=Acc|Number=Sing|Number[psed]=None|Number[psor]=Sing|Person[psor]=3	NOUN	_	oldal	34	obj	35
+hirdeti	" "	Definite=Def|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	VERB	_	hirdet	35	acl	29
+egy	" "	Definite=Ind|PronType=Art	DET	_	egy	36	det	37
+csecsemővel	" "	Case=Ins|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	NOUN	_	csecsemő	37	nmod:obl	35
+a	" "	Definite=Def|PronType=Art	DET	_	a	38	det	39
+kezében	""	Case=Ine|Number=Sing|Number[psed]=None|Number[psor]=Sing|Person[psor]=3	NOUN	_	kéz	39	nmod:obl	35
+.	"\n"	_	PUNCT	_	.	40	punct	1
+
+A	" "	Definite=Def|PronType=Art	DET	_	a	1	det	3
+globális	" "	Case=Nom|Degree=Pos|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	ADJ	_	globális	2	amod:att	3
+vakcinaelosztásban	""	Case=Ine|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	NOUN	_	vakcinaelosztás	3	nmod:obl	12
+,	" "	_	PUNCT	_	,	4	punct	10
+de	" "	_	CCONJ	_	de	5	cc	10
+akár	" "	_	ADV	_	akár	6	advmod:mode	10
+az	" "	Definite=Def|PronType=Art	DET	_	az	7	det	9
+erősebb	" "	Case=Nom|Degree=Cmp|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	ADJ	_	erős	8	amod:att	9
+immunválasz	" "	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	NOUN	_	immunválasz	9	nmod:att	10
+kialakításában	" "	Case=Ine|Number=Sing|Number[psed]=None|Number[psor]=Sing|Person[psor]=3	NOUN	_	kialakítás	10	conj	3
+is	" "	_	CCONJ	_	is	11	cc	10
+segíthet	""	Definite=Ind|Mood=Pot|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	VERB	_	segít	12	root	0
+,	" "	_	PUNCT	_	,	13	punct	12
+ha	" "	_	SCONJ	_	ha	14	mark	15
+megtalálják	""	Definite=Def|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	VERB	_	meg+talál	15	advcl	12
+,	" "	_	PUNCT	_	,	16	punct	19
+melyik	" "	Definite=Def|PronType=Int	DET	_	melyik	17	det	18
+védőoltásokat	" "	Case=Acc|Number=Plur|Number[psed]=None|Number[psor]=None|Person[psor]=None	NOUN	_	védőoltás	18	obj	20
+érdemes	" "	Case=Nom|Degree=Pos|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	ADJ	_	érdemes	19	conj	12
+vegyíteni	" "	VerbForm=Inf|Voice=Act	VERB	_	vegyít	20	xcomp	19
+egymással	""	Case=Ins|Number=Plur|Number[psed]=None|Number[psor]=None|Person=3|Person[psor]=None|PronType=Prs	PRON	_	egymás	21	nmod:obl	20
+,	" "	_	PUNCT	_	,	22	punct	19
+és	" "	_	CCONJ	_	és	23	cc	19
+milyen	" "	Definite=Def|PronType=Int	DET	_	milyen	24	det	25
+sorrendben	""	Case=Ine|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	NOUN	_	sorrend	25	nmod:obl	20
+.	" "	_	PUNCT	_	.	26	punct	12
+
+A	" "	Definite=Def|PronType=Art	DET	_	a	1	det	2
+megoldásba	" "	Case=Ill|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	NOUN	_	megoldás	2	nmod:obl	11
+akár	" "	_	ADV	_	akár	3	advmod:mode	11
+most	" "	_	ADV	_	most	4	advmod:tlocy	11
+még	" "	_	ADV	_	még	5	advmod:tlocy	11
+nem	" "	PronType=Neg	ADV	_	nem	6	advmod	11
+is	" "	_	ADV	_	is	7	advmod:mode	8
+engedélyezett	" "	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None|VerbForm=PartPast	ADJ	_	engedélyezett	8	amod:att	9
+oltások	" "	Case=Nom|Number=Plur|Number[psed]=None|Number[psor]=None|Person[psor]=None	NOUN	_	oltás	9	nsubj	11
+is	" "	_	CCONJ	_	is	10	cc	9
+bejátszhatnak	""	Definite=Ind|Mood=Pot|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	VERB	_	be+játszik	11	root	0
+.	"\n\n"	_	PUNCT	_	.	12	punct	11
+

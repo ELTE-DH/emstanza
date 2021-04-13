@@ -10,7 +10,7 @@ VENVPIP := $(VENVDIR)/bin/python -m pip
 VENVPYTHON := $(VENVDIR)/bin/python
 
 # Module specific parameters
-MODULE := emstanzadep
+MODULE := emstanza
 MODULE_PARAMS :=
 
 # These targets do not show as possible target with bash completion
@@ -64,7 +64,7 @@ venv:
 	@echo "$(GREEN)Virtualenv is succesfully created!$(NOCOLOR)"
 .PHONY: venv
 
-build: install-dep-packages venv __extra-deps
+build: venv __extra-deps
 	@echo "Building package..."
 	@[[ -z $$(compgen -G "dist/*.whl") && -z $$(compgen -G "dist/*.tar.gz") ]] || \
 		(echo -e "$(RED)dist/*.whl dist/*.tar.gz files exists.\nPlease use 'make clean' before build!$(NOCOLOR)"; \
