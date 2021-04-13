@@ -1,0 +1,7 @@
+form	wsafter	feats	upostag	xpostag	lemma	id	deprel	head
+A	" "	Definite=Def|PronType=Art	DET	_	a	1	det	2
+kutya	" "	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	NOUN	_	kutya	2	nsubj	3
+elment	" "	Definite=Ind|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	VERB	_	elik	3	root	0
+sétálni	""	VerbForm=Inf|Voice=Act	VERB	_	sétál	4	xcomp	3
+.	"\n"	_	PUNCT	_	.	5	punct	3
+

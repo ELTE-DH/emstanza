@@ -1,0 +1,122 @@
+form	wsafter	lemma	xpostag	upostag	feats	id	deprel	head
+Bár	" "	bár	[/Cnj]	SCONJ	_	1	mark	20
+az	" "	az	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	2	det	4
+Európai	" "	európai	[/Adj][Nom]	ADJ	Case=Nom|Degree=Pos|Number=Sing	3	amod:att	4
+Parlament	" "	parlament	[/N][Nom]	NOUN	Case=Nom|Number=Sing	4	nsubj	20
+(	""	(	[Punct]	PUNCT	_	5	punct	6
+EP	""	EP	[/N][Nom]	PROPN	Case=Nom|Number=Sing	6	appos	4
+)	""	)	[Punct]	PUNCT	_	7	punct	6
+,	" "	,	[Punct]	PUNCT	_	8	punct	11
+az	" "	az	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	9	det	11
+Európai	" "	európai	[/Adj][Nom]	ADJ	Case=Nom|Degree=Pos|Number=Sing	10	amod:att	11
+Bizottság	" "	bizottság	[/N][Nom]	NOUN	Case=Nom|Number=Sing	11	nmod:att	15
+(	""	(	[Punct]	PUNCT	_	12	punct	13
+EB	""	Eb	[/N][Nom]	PROPN	Case=Nom|Number=Sing	13	appos	11
+)	" "	)	[Punct]	PUNCT	_	14	punct	13
+és	" "	és	[/Cnj]	CONJ	_	15	punct	20
+az	" "	az	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	16	det	18
+Európai	" "	európai	[/Adj][Nom]	ADJ	Case=Nom|Degree=Pos|Number=Sing	17	amod:att	18
+Tanács	" "	tanács	[/N][Nom]	NOUN	Case=Nom|Number=Sing	18	nsubj	20
+is	" "	is	[/Adv]	ADV	_	19	advmod:mode	20
+elfogadta	" "	elfogad	[/V][Pst.Def.3Sg]	VERB	Definite=Def|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	20	advcl	39
+a	" "	a	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	21	det	23
+jogállamisági	" "	jogállamisági	[/Adj][Nom]	ADJ	Case=Nom|Degree=Pos|Number=Sing	22	amod:att	23
+rendeletet	""	rendelet	[/N][Acc]	NOUN	Case=Acc|Number=Sing	23	obj	20
+,	" "	,	[Punct]	PUNCT	_	24	punct	20
+ami	" "	ami	[/N|Pro|Rel][Nom]	PRON	Case=Nom|Number=Sing|Person=3|PronType=Rel	25	nsubj	30
+január	" "	január	[/N][Nom]	NOUN	Case=Nom|Number=Sing	26	nmod:att	27
+1-jén	" "	1	[/Num|Digit][_OrdDate/N][Supe]	NOUN	Case=Sup|Number=Sing	27	nmod:obl	30
+hatályba	" "	hatály	[/N][Ill]	NOUN	Case=Ill|Number=Sing	28	nmod:obl	30
+is	" "	is	[/Adv]	ADV	_	29	advmod:mode	30
+lépett	""	lép	[/V][Pst.NDef.3Sg]	VERB	Definite=Ind|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	30	acl	23
+,	" "	,	[Punct]	PUNCT	_	31	punct	30
+a	" "	a	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	32	det	33
+magyar	" "	magyar	[/Adj][Nom]	ADJ	Case=Nom|Degree=Pos|Number=Sing	33	orphan	37
+és	" "	és	[/Cnj]	CONJ	_	34	cc	37
+a	" "	a	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	35	det	37
+lengyel	" "	lengyel	[/Adj][Nom]	ADJ	Case=Nom|Degree=Pos|Number=Sing	36	amod:att	37
+kormány	" "	kormány	[/N][Nom]	NOUN	Case=Nom|Number=Sing	37	nsubj	39
+nemrég	" "	nemrég	[/Adv]	ADV	_	38	advmod:tlocy	39
+megtámadta	" "	megtámad	[/V][Pst.Def.3Sg]	VERB	Definite=Def|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	39	root	0
+azt	" "	az	[/Det|Pro][Acc]	PRON	Case=Acc|Number=Sing|Person=3|PronType=Dem	40	obj	39
+az	" "	az	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	41	det	43
+Európai	" "	európai	[/Adj][Nom]	ADJ	Case=Nom|Degree=Pos|Number=Sing	42	amod:att	43
+Unió	" "	unió	[/N][Nom]	NOUN	Case=Nom|Number=Sing	43	nmod:att	44
+Bíróságán	""	bíróság	[/N][Poss.3Sg][Supe]	NOUN	Case=Sup|Number=Sing|Number[psor]=Sing|Person[psor]=3	44	nmod:obl	39
+.	" "	.	[Punct]	PUNCT	_	45	punct	39
+
+Emiatt	" "	emiatt	[/Adv|Pro]	PRON	Case=Nom|Number=Sing|Person=3|PronType=Prs	1	nsubj	3
+úgy	" "	úgy	[/Adv|Pro]	PRON	Case=Nom|Number=Sing|Person=3|PronType=Prs	2	nsubj	3
+tűnik	""	tűnik	[/V][Prs.NDef.3Sg]	VERB	Definite=Ind|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	3	root	0
+,	" "	,	[Punct]	PUNCT	_	4	punct	3
+hogy	" "	hogy	[/Cnj]	SCONJ	_	5	mark	11
+a	" "	a	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	6	det	7
+Bizottság	" "	bizottság	[/N][Nom]	NOUN	Case=Nom|Number=Sing	7	nsubj	11
+még	" "	még	[/Adv]	ADV	_	8	advmod:tlocy	11
+el	" "	el	[/Prev]	ADV	_	9	compound:preverb	11
+se	" "	se	[/Adv]	ADV	PronType=Neg	10	advmod:tto	11
+kezdte	" "	kezd	[/V][Pst.Def.3Sg]	VERB	Definite=Def|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	11	ccomp:obl	3
+a	" "	a	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	12	det	14
+jogállamisági	" "	jogállamisági	[/Adj][Nom]	ADJ	Case=Nom|Degree=Pos|Number=Sing	13	amod:att	14
+elveket	" "	elv	[/N][Pl][Acc]	NOUN	Case=Acc|Number=Plur	14	obj	15
+megsértő	" "	megsértő	[/Adj][Nom]	ADJ	Case=Nom|Degree=Pos|Number=Sing	15	amod:att	16
+ügyek	" "	ügy	[/N][Pl][Nom]	NOUN	Case=Nom|Number=Plur	16	nmod:att	17
+vizsgálatát	" "	vizsgálat	[/N][Poss.3Sg][Acc]	NOUN	Case=Acc|Number=Sing|Number[psor]=Sing|Person[psor]=3	17	obj	11
+–	" "	–	[Hyph:Dash]	X	_	18	punct	23
+erről	" "	ez	[/Det|Pro][Del]	PRON	Case=Del|Number=Sing|Person=3|PronType=Dem	19	nmod:obl	23
+nemrég	" "	nemrég	[/Adv]	ADV	_	20	advmod:tlocy	23
+vitát	" "	vita	[/N][Acc]	NOUN	Case=Acc|Number=Sing	21	obj	23
+is	" "	is	[/Adv]	ADV	_	22	advmod:mode	23
+tartottak	" "	tart	[/V][Pst.NDef.3Pl]	VERB	Definite=Ind|Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	23	conj	11
+az	" "	az	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	24	det	25
+EP-ben	""	EP	[/N][Ine]	PROPN	Case=Ine|Number=Sing	25	nmod:obl	23
+,	" "	,	[Punct]	PUNCT	_	26	punct	23
+amiről	" "	ami	[/N|Pro|Rel][Del]	PRON	Case=Del|Number=Sing|Person=3|PronType=Rel	27	nmod:obl	29
+itt	" "	itt	[/Adv|Pro]	PRON	Case=Nom|Number=Sing|Person=3|PronType=Prs	28	nsubj	29
+számoltunk	" "	számol	[/V][Pst.NDef.1Pl]	VERB	Definite=Ind|Mood=Ind|Number=Plur|Person=1|Tense=Past|VerbForm=Fin|Voice=Act	29	advcl	23
+be	" "	be	[/Prev]	ADV	_	30	compound:preverb	29
+bővebben	""	bő	[/Adj][_Comp/Adj][_Manner/Adv]	ADJ	Case=Ess|Degree=Cmp|Number=Sing	31	amod:mode	29
+.	"\n"	.	[Punct]	PUNCT	_	32	punct	3
+
+Szerda	" "	szerda	[/N][Nom]	NOUN	Case=Nom|Number=Sing	1	nmod:att	2
+délután	" "	délután	[/Adv]	ADV	_	2	advmod:tlocy	7
+az	" "	az	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	3	det	4
+EP-képviselők	" "	EP-képviselő	[/N][Pl][Nom]	PROPN	Case=Nom|Number=Plur	4	nsubj	7
+egy	" "	egy	[/Det|Art.NDef]	DET	Definite=Ind|PronType=Art	5	det	6
+állásfoglalásról	" "	állásfoglalás	[/N][Del]	NOUN	Case=Del|Number=Sing	6	nmod:obl	7
+szavaznak	" "	szavaz	[/V][Prs.NDef.3Pl]	VERB	Definite=Ind|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	7	root	0
+majd	""	majd	[/Adv]	ADV	_	8	advmod:tlocy	7
+,	" "	,	[Punct]	PUNCT	_	9	punct	7
+amiben	" "	ami	[/N|Pro|Rel][Ine]	PRON	Case=Ine|Number=Sing|Person=3|PronType=Rel	10	nmod:obl	11
+kinyilvánítanák	""	kinyilvánít	[/V][Cond.Def.3Pl]	VERB	Definite=Def|Mood=Cnd|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	11	csubj	7
+:	" "	:	[Punct]	PUNCT	_	12	punct	11
+ha	" "	ha	[/Cnj]	SCONJ	_	13	mark	18
+a	" "	a	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	14	det	15
+Bizottság	" "	bizottság	[/N][Nom]	NOUN	Case=Nom|Number=Sing	15	nsubj	18
+júniusig	" "	június	[/N][Ter]	NOUN	Case=Ter|Number=Sing	16	nmod:obl	18
+nem	" "	nem	[/Adv]	ADV	PronType=Neg	17	advmod	18
+ad	" "	ad	[/V][Prs.NDef.3Sg]	VERB	Definite=Ind|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	18	ccomp:obl	11
+hírt	" "	hír	[/N][Acc]	NOUN	Case=Acc|Number=Sing	19	obj	18
+a	" "	a	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	20	det	21
+jogsértésekkel	" "	jogsértés	[/N][Pl][Ins]	NOUN	Case=Ins|Number=Plur	21	nmod:obl	22
+összefüggő	" "	összefüggő	[/Adj][Nom]	ADJ	Case=Nom|Degree=Pos|Number=Sing	22	amod:att	23
+vizsgálatokról	""	vizsgálat	[/N][Pl][Del]	NOUN	Case=Del|Number=Plur	23	nmod:obl	18
+,	" "	,	[Punct]	PUNCT	_	24	punct	18
+akkor	" "	akkor	[/Adv|Pro]	PRON	Case=Nom|Number=Sing|Person=3|PronType=Prs	25	nsubj	33
+az	" "	az	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	26	det	28
+Európai	" "	európai	[/Adj][Nom]	ADJ	Case=Nom|Degree=Pos|Number=Sing	27	amod:att	28
+Parlament	" "	parlament	[/N][Nom]	NOUN	Case=Nom|Number=Sing	28	nsubj	33
+is	" "	is	[/Adv]	ADV	_	29	advmod:mode	33
+a	" "	a	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	30	det	32
+luxemburgi	" "	luxemburgi	[/Adj][Nom]	ADJ	Case=Nom|Degree=Pos|Number=Sing	31	amod:att	32
+bírósághoz	" "	bíróság	[/N][All]	NOUN	Case=All|Number=Sing	32	nmod:obl	33
+fordul	" "	fordul	[/V][Prs.NDef.3Sg]	VERB	Definite=Ind|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	33	advcl	18
+majd	" "	majd	[/Adv]	ADV	_	34	advmod:tlocy	33
+a	" "	a	[/Det|Art.Def]	DET	Definite=Def|PronType=Art	35	det	36
+rendelet	" "	rendelet	[/N][Nom]	NOUN	Case=Nom|Number=Sing	36	nsubj	33
+be	" "	be	[/Prev]	ADV	_	37	compound:preverb	33
+nem	" "	nem	[/Adv]	ADV	PronType=Neg	38	advmod	33
+tartása	" "	tartás	[/N][Poss.3Sg][Nom]	NOUN	Case=Nom|Number=Sing|Number[psor]=Sing|Person[psor]=3	39	obl	33
+miatt	""	miatt	[/Post]	ADP	_	40	case	39
+.	"\n"	.	[Punct]	PUNCT	_	41	punct	7
+

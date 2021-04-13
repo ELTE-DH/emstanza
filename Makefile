@@ -13,6 +13,8 @@ VENVPYTHON := $(VENVDIR)/bin/python
 MODULE := emstanza
 MODULE_PARAMS :=
 
+TEST_INPUT := "telex.in"
+TEST_OUTPUT := "telex.out"
 # These targets do not show as possible target with bash completion
 __extra-deps:
  	# Do extra stuff (e.g. compiling, downloading) before building the package
@@ -82,11 +84,14 @@ install: build
 test:
 	@echo "Running tests..."
 	@[[ $$(compgen -G "$(CURDIR)/tests/inputs/*.in") ]] || (echo "$(RED)No input testfiles found!$(NOCOLOR)"; exit 1)
-	for test_input in $(CURDIR)/tests/inputs/*.in; do \
-		test_output=$(CURDIR)/tests/outputs/$$(basename $${test_input%in}out) ; \
-		time (cd /tmp && $(VENVPYTHON) -m $(MODULE) $(MODULE_PARAMS) -i $${test_input} | \
-		diff -sy --suppress-common-lines - $${test_output} 2>&1 | head -n100); \
-	done
+	time (cd /tmp && $(VENVPYTHON) -m $(MODULE) $(MODULE_PARAMS) -i $(CURDIR)/tests/inputs/${TEST_INPUT} | \
+	diff -sy --suppress-common-lines - $(CURDIR)/tests/outputs/${TEST_OUTPUT} 2>&1 | head -n100);
+	# These lines are commented because we are testing one configuration only.
+	# for test_input in $(CURDIR)/tests/inputs/*.in; do \
+	# 	test_output=$(CURDIR)/tests/outputs/$$(basename $${test_input%in}out) ; \
+	# 	time (cd /tmp && $(VENVPYTHON) -m $(MODULE) $(MODULE_PARAMS) -i $${test_input} | \
+	# 	diff -sy --suppress-common-lines - $${test_output} 2>&1 | head -n100); \
+	# done
 	@echo "$(GREEN)The test was completed successfully!$(NOCOLOR)"
 	@echo "Comparing GIT TAG (\"$(TRAVIS_TAG)\") with pacakge version (\"v$(OLDVER)\")..."
 	@[[ "$(TRAVIS_TAG)" == "v$(OLDVER)" || "$(TRAVIS_TAG)" == "" ]] && \

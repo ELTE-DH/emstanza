@@ -56,7 +56,7 @@ def main():
         'EmStanza',
         'Parsing with Stanza',
         (),
-        available_tasks['parse'],
+        available_tasks['tok-parse'],
     )  # Target field names
     tools = [(emstanza, ('emstanza', 'stanza', 'emStanza'))]
 
