@@ -17,11 +17,13 @@ Stanza tools adapted to the xtsv framework.
 
 ### Configurations
 
-- `tok`: Tokenizes text. Requires no fields and generates `form`, `wsafter` fields
-- `tok-pos`: Tokenizes and POS-tags text. Requires no fields and generates `form`, `wsafter`, `feats`, `upostag`, `xpostag` fields
-- `tok-lem`: Tokenizes, POS-tags, and lemmatizes text. Requires no fields and generates `form`, `wsafter`, `feats`, `upostag`, `xpostag`, `lemma` fields
-- `tok-parse`: Tokenizes, POS-tags, lemmatizes and dependency parses text. Requires no fields and generates `form`, `wsafter`, `feats`, `upostag`, `xpostag`, `lemma`, `id`, `head`, `deprel` fields
+- `tok`: Tokenizes text. Requires no fields and generates `form`, `wsafter` fields.
+- `tok-pos`: Tokenizes and POS-tags text. Requires no fields and generates `form`, `wsafter`, `feats`, `upostag`, `xpostag` fields.
+- `tok-lem`: Tokenizes, POS-tags, and lemmatizes text. Requires no fields and generates `form`, `wsafter`, `feats`, `upostag`, `xpostag`, `lemma` fields.
+- `tok-parse`: Tokenizes, POS-tags, lemmatizes and dependency parses text. Requires no fields and generates `form`, `wsafter`, `feats`, `upostag`, `xpostag`, `lemma`, `id`, `head`, `deprel` fields.
 - `parse`: Dependency parses text. Requires `form`, `lemma`, `upostag`, `feats` and generates `id`, `deprel`, `head` fields.
+- `pos`: POS-tags pretokenized text. Requires the `form` field and generates `feats`, `upostag`, `xpostag` fields.
+- `pos-lem`: POS-tags, and lemmatizes text. Requires the `form` field and generates `feats`, `upostag`, `xpostag`, `lemma` fields.
 
 ## License
 This xtsv wrapper is licensed under the LGPL 3.0 license. The model and the included .pt files have their own licenses.

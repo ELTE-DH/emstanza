@@ -67,7 +67,7 @@ class EmStanza:
                 'decode_func': self._decode_pretokenized,
                 'pretokenized': True,
             },
-            'pos,lemma': {
+            'pos,lem': {
                 'processors': 'tokenize,pos,lemma',
                 'encode_func': self._encode_pretokenized,
                 'decode_func': self._decode_pretokenized,

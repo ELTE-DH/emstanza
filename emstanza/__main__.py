@@ -54,8 +54,8 @@ def main():
             'source_fields': {'form'},
             'target_fields': ['upostag', 'xpostag', 'feats']
         },
-        'pos,lemma': {
-            'task': 'pos,lemma',
+        'pos,lem': {
+            'task': 'pos,lem',
             'source_fields': {'form'},
             'target_fields': ['upostag', 'xpostag', 'feats', 'lemma']
         }
@@ -66,7 +66,7 @@ def main():
         'EmStanza',
         'Parsing with Stanza',
         (),
-        available_tasks['pos,lemma'],
+        available_tasks['pos,lem'],
     )  # Target field names
     tools = [(emstanza, ('emstanza', 'stanza', 'emStanza'))]
 
