@@ -7,9 +7,9 @@ from stanza.models.common.doc import Document
 
 
 class EmStanza:
-    '''
+    """
     Class to handle dependency parsing.
-    '''
+    """
 
     class_path = ''
     vm_opts = ''
@@ -23,38 +23,55 @@ class EmStanza:
         source_fields=None,
         target_fields=None,
     ):
-        '''
+        """
         The initialisation of the module. One can extend the list of parameters as needed. The mandatory fields which
          should be set by keywords are the following:
         :param source_fields: the set of names of the input fields
         :param target_fields: the list of names of the output fields in generation order
-        '''
+        """
 
         available_tasks = {
             'tok': {
                 'processors': 'tokenize',
                 'encode_func': self._join_lines_ignore_hashmark,
-                'decode_func': self._decode_tokenized,
+                'decode_func': self._decode_stanza_tokenized,
+                'pretokenized': False,
             },
             'tok-pos': {
                 'processors': 'tokenize,pos',
                 'encode_func': self._join_lines_ignore_hashmark,
-                'decode_func': self._decode_tokenized,
+                'decode_func': self._decode_stanza_tokenized,
+                'pretokenized': False,
             },
             'tok-lem': {
                 'processors': 'tokenize,pos,lemma',
                 'encode_func': self._join_lines_ignore_hashmark,
-                'decode_func': self._decode_tokenized,
+                'decode_func': self._decode_stanza_tokenized,
+                'pretokenized': False,
             },
             'tok-parse': {
                 'processors': 'tokenize,pos,lemma,depparse',
                 'encode_func': self._join_lines_ignore_hashmark,
-                'decode_func': self._decode_tokenized,
+                'decode_func': self._decode_stanza_tokenized,
+                'pretokenized': False,
             },
             'parse': {
                 'processors': 'depparse',
                 'encode_func': self._encode_parse,
-                'decode_func': self._decode_parse,
+                'decode_func': self._decode_pretokenized,
+                'pretokenized': False,
+            },
+            'pos': {
+                'processors': 'tokenize,pos',
+                'encode_func': self._encode_pretokenized,
+                'decode_func': self._decode_pretokenized,
+                'pretokenized': True,
+            },
+            'pos,lemma': {
+                'processors': 'tokenize,pos,lemma',
+                'encode_func': self._encode_pretokenized,
+                'decode_func': self._decode_pretokenized,
+                'pretokenized': True,
             },
         }
 
@@ -92,7 +109,7 @@ class EmStanza:
             'feats': 'feats',
         }
 
-        # this dictionary handles typecasting
+        # this dictionary handles typecasting from stanza to xtsv (str)
         self.s2x_converter = {
             'id': str,
             'form': lambda s: s,
@@ -118,27 +135,53 @@ class EmStanza:
             'feats': 'feats',
         }
 
-    def _setup(self, processors, encode_func, decode_func):
+    def _setup(self, processors, encode_func, decode_func, pretokenized):
 
-        pretagged = processors == 'depparse'
+        depparse_pretagged = processors == 'depparse'
         self.pipeline = Pipeline(
-            lang='hu', dir=self.model_path, processors=processors, verbose=False, depparse_pretagged=pretagged
+            lang='hu',
+            dir=self.model_path,
+            processors=processors,
+            verbose=False,
+            depparse_pretagged=depparse_pretagged,
+            tokenize_pretokenized=pretokenized,
         )
         self._encode_sentence = encode_func
         self._decode_sentence = decode_func
 
     @staticmethod
-    def _join_lines_ignore_hashmark(lines, field_names):
+    def _join_lines_ignore_hashmark(lines, *_):
         return ''.join(line for line in lines if not line.startswith('#'))
 
     @staticmethod
+    def _encode_pretokenized(sen, field_names) -> list[str]:
+        return ' '.join([tok[field_names['form']].strip() for tok in sen])
+
+    def _decode_pretokenized(self, document, sen):
+        """
+        Modifies xtsv-parsed sentence in-place by addig fields from the target_fields.
+        :param sen: list of lines in xtsv format
+        :param document: Stanza Document containing target_fields.
+        :return: None.
+        """
+
+        for token, line in zip(document.sentences[0].tokens, sen):
+            # we are modifying the elements of sen inplace
+            line += [
+                self.s2x_converter[field](getattr(token.words[0], self.x2s_rosetta[field]))
+                for field in self.target_fields
+            ]
+
+        return sen
+
+    @staticmethod
     def _encode_parse(sen, field_names) -> Document:
-        '''
+        """
         Converts from xtsv sentence to Stanza Document.
         :param sen: xtsv sentence
         :param field_names: field names
         :return: Stanza Document containing one sentence.
-        '''
+        """
 
         stanza_sentence = [
             {
@@ -153,26 +196,12 @@ class EmStanza:
 
         return Document([stanza_sentence])
 
-    @staticmethod
-    def _decode_parse(document: Document, sen: list) -> list:
-        '''
-        Modifies xtsv-parsed sentenced in-place by addig `id`, `deprel`, `head` fields.
-        :param sen: list of lines in xtsv format
-        :param document: Stanza Document containing depparse.
-        :return: None.
-        '''
-        for token, line in zip(document.sentences[0].tokens, sen):
-            # we are modifying the elements of sen inplace
-            line += [str(token.words[0].id), token.words[0].deprel, str(token.words[0].head)]
-
-        return sen
-
-    def _decode_tokenized(self, document: Document, *_):
-        '''
+    def _decode_stanza_tokenized(self, document: Document, *_):
+        """
         Decodes Documents if pipeline started from tokenization.
         :param document: Stanza Document containing task-specific fields.
         :return: Returns xtsv-formatted sentences.
-        '''
+        """
 
         self._create_wsafter_field(document)
 
@@ -191,11 +220,11 @@ class EmStanza:
 
     def _create_wsafter_field(self, document: Document):
 
-        '''
+        """
         Takes a stanza Document object and modifies it inplace by adding a .wsafter attribute.
         :param document: Stanza Document containing Tokens.
         :return: None.
-        '''
+        """
 
         for sen_idx, sentence in enumerate(document.sentences):  # Document[Sentence[Token]]
             # Sentence DOES NOT contain trailing whitespaces, the information is only availabe on Document-level
@@ -226,13 +255,13 @@ class EmStanza:
         return '"' + text.__repr__().strip('\'') + '"'  # HACK
 
     def process_sentence(self, sen, field_names=None):
-        '''
+        """
         Process one sentence per function call
         :param sen: the list of all tokens in the sentence, each token contain all fields
         :param field_names: the prepared field_names from prepare_fields() to select the appropriate input field
          to process
         :return: the sen object augmented with the output field values for each token
-        '''
+        """
 
         # encode to stanza format
         encoded_doc = self._encode_sentence(sen, field_names)
@@ -247,12 +276,12 @@ class EmStanza:
 
     @staticmethod
     def prepare_fields(field_names):
-        '''
+        """
         This function is called once before processing the input. It can be used to initialise field conversion classes
          to accomodate the current order of fields (eg. field to features)
         :param field_names: the dictionary of the names of the input fields mapped to their order in the input stream
         :return: the list of the initialised feature classes as required for process_sentence (in most cases the
          columnnumbers of the required field in the required order are sufficient
          eg. return [field_names['form'], field_names['lemma'], field_names['xpostag'], ...] )
-        '''
+        """
         return field_names  # TODO: Implement or overload on inherit

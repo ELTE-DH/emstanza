@@ -49,6 +49,16 @@ def main():
             'source_fields': {'form', 'lemma', 'upostag', 'feats'},
             'target_fields': ['id', 'deprel', 'head'],
         },
+        'pos': {
+            'task': 'pos',
+            'source_fields': {'form'},
+            'target_fields': ['upostag', 'xpostag', 'feats']
+        },
+        'pos,lemma': {
+            'task': 'pos,lemma',
+            'source_fields': {'form'},
+            'target_fields': ['upostag', 'xpostag', 'feats', 'lemma']
+        }
     }
 
     emstanza = (
@@ -56,7 +66,7 @@ def main():
         'EmStanza',
         'Parsing with Stanza',
         (),
-        available_tasks['tok-parse'],
+        available_tasks['pos,lemma'],
     )  # Target field names
     tools = [(emstanza, ('emstanza', 'stanza', 'emStanza'))]
 
