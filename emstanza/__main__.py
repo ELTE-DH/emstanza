@@ -82,6 +82,8 @@ def main():
     # output_iterator.writelines(proc)
 
     # For testing all of the tokenizer settings. Supply a text file and it will write to stdout all the tokenizer tasks.
+    # from xtsv import process
+    # from emstanza import EmStanza
     # from io import StringIO
     # input_text = ''.join(input_data)
     # for task_name, task in available_tasks.items():

@@ -4,6 +4,7 @@
 import os
 from stanza import Pipeline
 from stanza.models.common.doc import Document
+from typing import List
 
 
 class EmStanza:
@@ -150,19 +151,19 @@ class EmStanza:
         self._decode_sentence = decode_func
 
     @staticmethod
-    def _join_lines_ignore_hashmark(lines, *_):
+    def _join_lines_ignore_hashmark(lines, *_) -> str:
         return ''.join(line for line in lines if not line.startswith('#'))
 
     @staticmethod
-    def _encode_pretokenized(sen, field_names) -> list[str]:
-        return ' '.join([tok[field_names['form']].strip() for tok in sen])
+    def _encode_pretokenized(sen, field_names) -> str:
+        return ' '.join(tok[field_names['form']].strip() for tok in sen)
 
-    def _decode_pretokenized(self, document, sen):
+    def _decode_pretokenized(self, document, sen) -> List[List[str]]:
         """
         Modifies xtsv-parsed sentence in-place by addig fields from the target_fields.
         :param sen: list of lines in xtsv format
         :param document: Stanza Document containing target_fields.
-        :return: None.
+        :return: xtsv formatted sentence.
         """
 
         for token, line in zip(document.sentences[0].tokens, sen):
@@ -196,7 +197,7 @@ class EmStanza:
 
         return Document([stanza_sentence])
 
-    def _decode_stanza_tokenized(self, document: Document, *_):
+    def _decode_stanza_tokenized(self, document: Document, *_) -> List[List[str]]:
         """
         Decodes Documents if pipeline started from tokenization.
         :param document: Stanza Document containing task-specific fields.
@@ -219,36 +220,35 @@ class EmStanza:
         return xtsv_sentences
 
     def _create_wsafter_field(self, document: Document):
-
         """
         Takes a stanza Document object and modifies it inplace by adding a .wsafter attribute.
         :param document: Stanza Document containing Tokens.
         :return: None.
         """
 
-        for sen_idx, sentence in enumerate(document.sentences):  # Document[Sentence[Token]]
+        for sen_idx, sentence in enumerate(document.sentences, start=1):  # Document[Sentence[Token]]
             # Sentence DOES NOT contain trailing whitespaces, the information is only availabe on Document-level
             start_id = sentence.tokens[0].start_char
             for i in range(0, len(sentence.tokens) - 1):
-                current_token, next_token = sentence.tokens[i : i + 2]
+                current_token, next_token = sentence.tokens[i: i + 2]
                 # start_char and end_char are defined in relation to the original text
                 # also, I found no other way to convert to literal
                 current_token.words[0].wsafter = self._convert_to_xtsv_literal(
-                    sentence.text[current_token.end_char - start_id : next_token.start_char - start_id]
+                    sentence.text[current_token.end_char - start_id: next_token.start_char - start_id]
                 )
 
+            # at the last token, we do things differently
+            current_token = sentence.tokens[-1]
+            # we check if we are in the last sentence, if not, there is a next token in the document, else the whitespaces are at the end of the document
+            if sen_idx != len(document.sentences):
+                next_token = document.sentences[sen_idx].tokens[0]
+                current_token.words[0].wsafter = self._convert_to_xtsv_literal(
+                    document.text[current_token.end_char: next_token.start_char]
+                )
             else:
-                current_token = sentence.tokens[-1]
-                # we check if we are in the last sentence, if not, there is a next token in the document, else the whitespaces are at the end of the document
-                if sen_idx != len(document.sentences) - 1:
-                    next_token = document.sentences[sen_idx + 1].tokens[0]
-                    current_token.words[0].wsafter = self._convert_to_xtsv_literal(
-                        document.text[current_token.end_char : next_token.start_char]
-                    )
-                else:
-                    current_token.words[0].wsafter = self._convert_to_xtsv_literal(
-                        document.text[current_token.end_char :]
-                    )
+                current_token.words[0].wsafter = self._convert_to_xtsv_literal(
+                    document.text[current_token.end_char:]
+                )
 
     @staticmethod
     def _convert_to_xtsv_literal(text: str) -> str:
