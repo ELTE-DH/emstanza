@@ -11,7 +11,7 @@ VENVPYTHON := $(VENVDIR)/bin/python
 
 # Module specific parameters
 MODULE := emstanza
-MODULE_PARAMS :=
+MODULE_PARAMS := --task tok-parse
 
 TEST_INPUT := "telex.in"
 TEST_OUTPUT := "telex.out"
@@ -66,7 +66,7 @@ venv:
 	@echo "$(GREEN)Virtualenv is succesfully created!$(NOCOLOR)"
 .PHONY: venv
 
-build: venv __extra-deps
+build: install-dep-packages venv __extra-deps
 	@echo "Building package..."
 	@[[ -z $$(compgen -G "dist/*.whl") && -z $$(compgen -G "dist/*.tar.gz") ]] || \
 		(echo -e "$(RED)dist/*.whl dist/*.tar.gz files exists.\nPlease use 'make clean' before build!$(NOCOLOR)"; \
@@ -85,7 +85,11 @@ test:
 	@echo "Running tests..."
 	@[[ $$(compgen -G "$(CURDIR)/tests/inputs/*.in") ]] || (echo "$(RED)No input testfiles found!$(NOCOLOR)"; exit 1)
 	time (cd /tmp && $(VENVPYTHON) -m $(MODULE) $(MODULE_PARAMS) -i $(CURDIR)/tests/inputs/${TEST_INPUT} | \
-	diff -sy --suppress-common-lines - $(CURDIR)/tests/outputs/${TEST_OUTPUT} 2>&1 | head -n100);
+	diff -sy --suppress-common-lines - $(CURDIR)/tests/outputs/${TEST_OUTPUT} 2>&1 | head -n100); \
+    time (cd /tmp && $(VENVPYTHON) -m $(MODULE) --task pos,lem -i $(CURDIR)/tests/inputs/udpos.in | \
+	diff -sy --suppress-common-lines - $(CURDIR)/tests/outputs/udpos.out 2>&1 | head -n100); \
+    time (cd /tmp && $(VENVPYTHON) -m $(MODULE) --task parse -i $(CURDIR)/tests/inputs/udparse.in | \
+	diff -sy --suppress-common-lines - $(CURDIR)/tests/outputs/udparse.out 2>&1 | head -n100);
 	# These lines are commented because we are testing one configuration only.
 	# for test_input in $(CURDIR)/tests/inputs/*.in; do \
 	# 	test_output=$(CURDIR)/tests/outputs/$$(basename $${test_input%in}out) ; \

@@ -6,7 +6,9 @@ from xtsv import build_pipeline, parser_skeleton, jnius_config
 
 def main():
 
-    argparser = parser_skeleton(description='emstanza')
+    argparser = parser_skeleton(description='emStanza - Stanza fitted to xtsv')
+    argparser.add_argument('--task', dest='emstanza_task', required=True,
+                           help='Task to do (tok, pos, lem, parse, tok-pos, tok-parse, etc.')
     opts = argparser.parse_args()
 
     jnius_config.classpath_show_warning = opts.verbose  # Suppress warning.
@@ -61,12 +63,15 @@ def main():
         }
     }
 
+    if opts.emstanza_task not in available_tasks.keys():
+        raise ValueError(f'task parameter must be one of {available_tasks.keys()} !')
+
     emstanza = (
         'emstanza',
         'EmStanza',
-        'Parsing with Stanza',
+        'Processing with Stanza',
         (),
-        available_tasks['pos,lem'],
+        available_tasks[opts.emstanza_task],
     )  # Target field names
     tools = [(emstanza, ('emstanza', 'stanza', 'emStanza'))]
 

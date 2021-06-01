@@ -23,7 +23,7 @@ setuptools.setup(
     # Get version without actually importing the module (else we need the dependencies installed)
     version=getattr(import_python_file('version', 'emstanza/version.py'), '__version__'),
     author='levaid',  # Will warn about missing e-mail
-    description='Stanza fitted to xtsv.',
+    description='Stanza fitted to xtsv',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/ELTE-DH/emstanza',

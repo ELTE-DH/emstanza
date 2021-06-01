@@ -1,0 +1,122 @@
+form	wsafter	upostag	xpostag	feats	lemma
+Bár	" "	SCONJ	_	_	bár
+az	" "	DET	_	Definite=Def|PronType=Art	az
+Európai	" "	PROPN	_	Case=Nom|Number=Sing	Európai
+Parlament	" "	PROPN	_	Case=Nom|Number=Sing	Parlament
+(	""	PUNCT	_	_	(
+EP	""	PROPN	_	Case=Nom|Number=Sing	EP
+)	""	PUNCT	_	_	)
+,	" "	PUNCT	_	_	,
+az	" "	DET	_	Definite=Def|PronType=Art	az
+Európai	" "	PROPN	_	Case=Nom|Number=Sing	Európai
+Bizottság	" "	PROPN	_	Case=Nom|Number=Sing	Bizottság
+(	""	PUNCT	_	_	(
+EB	""	PROPN	_	Case=Nom|Number=Sing	EB
+)	" "	PUNCT	_	_	)
+és	" "	CCONJ	_	_	és
+az	" "	DET	_	Definite=Def|PronType=Art	az
+Európai	" "	PROPN	_	Case=Nom|Number=Sing	Európai
+Tanács	" "	PROPN	_	Case=Nom|Number=Sing	Tanács
+is	" "	CCONJ	_	_	is
+elfogadta	" "	VERB	_	Definite=Def|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	el+fogad
+a	" "	DET	_	Definite=Def|PronType=Art	a
+jogállamisági	" "	ADJ	_	Case=Nom|Degree=Pos|Number=Sing	jogállamisági
+rendeletet	""	NOUN	_	Case=Acc|Number=Sing	rendelet
+,	" "	PUNCT	_	_	,
+ami	" "	PRON	_	Case=Nom|Number=Sing|Person=3|PronType=Rel	ami
+január	" "	NOUN	_	Case=Nom|Number=Sing	január
+1-jén	" "	NOUN	_	Case=Sup|Number=Sing|Number[psor]=Sing|Person[psor]=3	1.
+hatályba	" "	NOUN	_	Case=Ill|Number=Sing	hatály
+is	" "	CCONJ	_	_	is
+lépett	""	VERB	_	Definite=Ind|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	lép
+,	" "	PUNCT	_	_	,
+a	" "	DET	_	Definite=Def|PronType=Art	a
+magyar	" "	ADJ	_	Case=Nom|Degree=Pos|Number=Sing	magyar
+és	" "	CCONJ	_	_	és
+a	" "	DET	_	Definite=Def|PronType=Art	a
+lengyel	" "	ADJ	_	Case=Nom|Degree=Pos|Number=Sing	lengyel
+kormány	" "	NOUN	_	Case=Nom|Number=Sing	kormány
+nemrég	" "	ADV	_	_	nemrég
+megtámadta	" "	VERB	_	Definite=Def|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	meg+támad
+azt	" "	PRON	_	Case=Acc|Number=Sing|Person=3|PronType=Dem	az
+az	" "	DET	_	Definite=Def|PronType=Art	az
+Európai	" "	PROPN	_	Case=Nom|Number=Sing	Európai
+Unió	" "	PROPN	_	Case=Nom|Number=Sing	Unió
+Bíróságán	""	PROPN	_	Case=Sup|Number=Sing	Bíróság
+.	" "	PUNCT	_	_	.
+
+Emiatt	" "	ADV	_	PronType=Dem	emiatt
+úgy	" "	ADV	_	PronType=Dem	úgy
+tűnik	""	VERB	_	Definite=Ind|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	tűnik
+,	" "	PUNCT	_	_	,
+hogy	" "	SCONJ	_	_	hogy
+a	" "	DET	_	Definite=Def|PronType=Art	a
+Bizottság	" "	PROPN	_	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	Bizottság
+még	" "	ADV	_	_	még
+el	" "	ADV	_	_	el
+se	" "	ADV	_	PronType=Neg	se
+kezdte	" "	VERB	_	Definite=Def|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	kezd
+a	" "	DET	_	Definite=Def|PronType=Art	a
+jogállamisági	" "	ADJ	_	Case=Nom|Degree=Pos|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	jogállamisági
+elveket	" "	NOUN	_	Case=Acc|Number=Plur|Number[psed]=None|Number[psor]=None|Person[psor]=None	elv
+megsértő	" "	ADJ	_	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None|VerbForm=PartPast	megsértő
+ügyek	" "	NOUN	_	Case=Nom|Number=Plur|Number[psed]=None|Number[psor]=None|Person[psor]=None	ügy
+vizsgálatát	" "	NOUN	_	Case=Acc|Number=Sing|Number[psed]=None|Number[psor]=Sing|Person[psor]=3	vizsgálat
+–	" "	PUNCT	_	_	–
+erről	" "	PRON	_	Case=Del|Number=Sing|Number[psed]=None|Number[psor]=None|Person=3|Person[psor]=None|PronType=Dem	ez
+nemrég	" "	ADV	_	_	nemrég
+vitát	" "	NOUN	_	Case=Acc|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	vita
+is	" "	CCONJ	_	_	is
+tartottak	" "	VERB	_	Definite=Ind|Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	tart
+az	" "	DET	_	Definite=Def|PronType=Art	az
+EP-ben	""	NOUN	_	Case=Ine|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	EP
+,	" "	PUNCT	_	_	,
+amiről	" "	PRON	_	Case=Del|Number=Sing|Number[psed]=None|Number[psor]=None|Person=3|Person[psor]=None|PronType=Rel	ami
+itt	" "	ADV	_	PronType=Dem	itt
+számoltunk	" "	VERB	_	Definite=Ind|Mood=Ind|Number=Plur|Person=1|Tense=Past|VerbForm=Fin|Voice=Act	számol
+be	" "	ADV	_	Degree=Pos	be
+bővebben	""	NOUN	_	Case=Ine|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	bő
+.	"\n"	PUNCT	_	_	.
+
+Szerda	" "	NOUN	_	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	szerda
+délután	" "	ADV	_	_	délután
+az	" "	DET	_	Definite=Def|PronType=Art	az
+EP-képviselők	" "	NOUN	_	Case=Nom|Number=Plur|Number[psed]=None|Number[psor]=None|Person[psor]=None	EP-képviselő
+egy	" "	DET	_	Definite=Ind|PronType=Art	egy
+állásfoglalásról	" "	NOUN	_	Case=Del|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	állásfoglalás
+szavaznak	" "	VERB	_	Definite=Ind|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	szavazik
+majd	""	ADV	_	_	majd
+,	" "	PUNCT	_	_	,
+amiben	" "	PRON	_	Case=Ine|Number=Sing|Number[psed]=None|Number[psor]=None|Person=3|Person[psor]=None|PronType=Rel	ami
+kinyilvánítanák	""	VERB	_	Definite=Def|Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	kinyilvánít
+:	" "	PUNCT	_	_	:
+ha	" "	SCONJ	_	_	ha
+a	" "	DET	_	Definite=Def|PronType=Art	a
+Bizottság	" "	PROPN	_	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	Bizottság
+júniusig	" "	ADJ	_	Case=Nom|Degree=Pos|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	júniusig
+nem	" "	ADV	_	PronType=Neg	nem
+ad	" "	VERB	_	Definite=Ind|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	ad
+hírt	" "	NOUN	_	Case=Acc|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	hír
+a	" "	DET	_	Definite=Def|PronType=Art	a
+jogsértésekkel	" "	NOUN	_	Case=Ins|Number=Plur|Number[psed]=None|Number[psor]=None|Person[psor]=None	jogsértés
+összefüggő	" "	ADJ	_	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None|VerbForm=PartPres	összefüggő
+vizsgálatokról	""	NOUN	_	Case=Del|Number=Plur|Number[psed]=None|Number[psor]=None|Person[psor]=None	vizsgálat
+,	" "	PUNCT	_	_	,
+akkor	" "	ADV	_	PronType=Dem	akkor
+az	" "	DET	_	Definite=Def|PronType=Art	az
+Európai	" "	PROPN	_	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	Európai
+Parlament	" "	PROPN	_	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	Parlament
+is	" "	CCONJ	_	_	is
+a	" "	DET	_	Definite=Def|PronType=Art	a
+luxemburgi	" "	ADJ	_	Case=Nom|Degree=Pos|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	luxemburgi
+bírósághoz	" "	NOUN	_	Case=All|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	bíróság
+fordul	" "	VERB	_	Definite=Ind|Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	fordul
+majd	" "	ADV	_	_	majd
+a	" "	DET	_	Definite=Def|PronType=Art	a
+rendelet	" "	NOUN	_	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=None|Person[psor]=None	rendelet
+be	" "	ADV	_	Degree=Pos	be
+nem	" "	ADV	_	PronType=Neg	nem
+tartása	" "	NOUN	_	Case=Nom|Number=Sing|Number[psed]=None|Number[psor]=Sing|Person[psor]=3	tartás
+miatt	""	ADP	_	_	miatt
+.	"\n"	PUNCT	_	_	.
+
