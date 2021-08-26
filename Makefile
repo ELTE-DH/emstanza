@@ -47,7 +47,7 @@ all: clean venv build install test
 install-dep-packages:
 	@echo "Installing needed packages from Aptfile..."
 	@command -v apt-get >/dev/null 2>&1 || \
-			(echo >&2 "$(RED)Command 'apt-get' could not be found!$(NOCOLOR)"; exit 1)
+			(echo >&2 "$(RED)Command 'apt-get' could not be found!$(NOCOLOR)")
 	# Aptfile can be omited if empty
 	@[[ ! -f "$(CURDIR)/Aptfile" ]] || \
 	    ([[ $$(dpkg -l | grep -wcf $(CURDIR)/Aptfile) -eq $$(cat $(CURDIR)/Aptfile | wc -l) ]] || \
@@ -85,6 +85,9 @@ test:
 	@echo "Running tests..."
 	@[[ $$(compgen -G "$(CURDIR)/tests/inputs/*.in") ]] || (echo "$(RED)No input testfiles found!$(NOCOLOR)"; exit 1)
 	time (cd /tmp && $(VENVPYTHON) -m $(MODULE) $(MODULE_PARAMS) -i $(CURDIR)/tests/inputs/${TEST_INPUT} | \
+	diff -sy --suppress-common-lines - $(CURDIR)/tests/outputs/${TEST_OUTPUT} 2>&1 | head -n100); \
+	time (cd /tmp && $(VENVPYTHON) -m $(MODULE) --task tok-lem -i $(CURDIR)/tests/inputs/${TEST_INPUT} | \
+	$(VENVPYTHON) -m $(MODULE) --task parse | \
 	diff -sy --suppress-common-lines - $(CURDIR)/tests/outputs/${TEST_OUTPUT} 2>&1 | head -n100); \
     time (cd /tmp && $(VENVPYTHON) -m $(MODULE) --task pos,lem -i $(CURDIR)/tests/inputs/udpos.in | \
 	diff -sy --suppress-common-lines - $(CURDIR)/tests/outputs/udpos.out 2>&1 | head -n100); \

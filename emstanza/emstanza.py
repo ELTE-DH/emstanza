@@ -182,12 +182,10 @@ class EmStanza:
 
         self._create_wsafter_field(document)
 
-        xtsv_sentences = []
         for sentence in document.sentences:
-            current_sentence = [self._convert_fields_s2x(token) for token in sentence.tokens]
-            xtsv_sentences.append('{0}\n\n'.format('\n'.join('\t'.join(line) for line in current_sentence)))
-
-        return xtsv_sentences
+            for token in sentence.tokens:
+                yield '{0}\n'.format('\t'.join(self._convert_fields_s2x(token)))
+            yield '\n'
 
     def _create_wsafter_field(self, document: Document):
         """
